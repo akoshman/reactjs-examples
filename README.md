@@ -3,7 +3,7 @@ Collection of simple examples using react.js
 
 [Text input](https://github.com/DmitriySavchenko/reactjs-examples/blob/master/text_input.html)
  
-![Text input](https://raw.githubusercontent.com/DmitriySavchenko/reactjs-examples/master/demo_gif/input_text.gif)
+![Text input](https://raw.githubusercontent.com/DmitriySavchenko/reactjs-examples/master/demo_gif/text_input.gif)
 
 [Сustom component](https://github.com/DmitriySavchenko/reactjs-examples/blob/master/custom_component.html)
  
