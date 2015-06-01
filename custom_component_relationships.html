@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Custom component relationships</title>
+	<script src="https://fb.me/react-0.13.3.js"></script>
+    <script src="https://fb.me/JSXTransformer-0.13.3.js"></script>
+</head>
+<body>
+	<script type="text/jsx">
+		var App = React.createClass({
+			getInitialState:function(){
+				return {
+					appMessage : 'App component text'
+				};
+			},
+			update:function(e){
+				this.setState({appMessage:e.target.value});
+			},
+			render:function(){
+				return(
+					<div>
+						<h1>{this.state.appMessage}</h1>
+						<TextInput update={this.update}/>
+					</div>
+					);
+			}
+		});
+		var TextInput = React.createClass({
+			getInitialState:function(){
+				return {
+					message : 'TextInput component text'
+				};
+			},
+			update:function(e){
+				this.setState({message:e.target.value});
+				if(this.props.update)
+					this.props.update(e);
+			},
+			render: function(){
+				return(
+					<div>
+						<span>{this.state.message}</span>
+						<input type="text" onChange={this.update}/>
+					</div>
+					);
+			}
+		});
+		React.render(<App/>,document.body);
+	</script>
+</body>
+</html>
