@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Custom component</title>
+	<script src="https://fb.me/react-0.13.3.js"></script>
+    <script src="https://fb.me/JSXTransformer-0.13.3.js"></script>
+</head>
+<body>
+	<script type="text/jsx">
+		var App = React.createClass({
+			render:function(){
+				return(
+					<div>
+						<TextInput/>
+					</div>
+					);
+			}
+		});
+		var TextInput = React.createClass({
+			getInitialState:function(){
+				return {
+					message : 'TextInput component text'
+				};
+			},
+			update:function(e){
+				this.setState({message:e.target.value});
+			},
+			render: function(){
+				return(
+					<div>
+						<span>{this.state.message}</span>
+						<br></br> 
+						<input type="text" onChange={this.update}/>
+					</div>
+					);
+			}
+		});
+		React.render(<App/>,document.body);
+	</script>
+</body>
+</html>
