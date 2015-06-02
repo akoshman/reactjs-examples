@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Select input example</title>
+	<script src="https://fb.me/react-0.13.3.js"></script>
+    <script src="https://fb.me/JSXTransformer-0.13.3.js"></script>
+</head>
+<body>
+	<script type="text/jsx">
+		var App = React.createClass({
+			getInitialState:function(){
+				return({
+					selected : "One",
+					selectOptions: [ "One","Two","Three" ]
+				});
+			},
+			change:function(event){
+				this.setState({selected:event.target.value});
+			},
+			render:function(){
+				var options = this.state.selectOptions.map(function(option){
+		            return <option value={option}>{option}</option>
+		        });
+				return (
+					<div>
+						<select value={this.state.selected} onChange={this.change}>
+		                    {options}
+		                </select>
+		                 Your choice : {this.state.selected}
+					</div>
+					);
+			}
+		});
+		React.render(<App />,document.body);
+	</script>
+</body>
+</html>

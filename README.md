@@ -9,6 +9,10 @@ Collection of simple examples using react.js
  
 ![Сustom component](https://raw.githubusercontent.com/DmitriySavchenko/reactjs-examples/master/demo_gif/custom_component.gif)
 
-[Сustom component relationships](https://github.com/DmitriySavchenko/reactjs-examples/blob/master/custom_component_relationships.html)
+[Сustom components relationships](https://github.com/DmitriySavchenko/reactjs-examples/blob/master/custom_component_relationships.html)
  
-![Сustom component relationships](https://raw.githubusercontent.com/DmitriySavchenko/reactjs-examples/master/demo_gif/custom_component_relationships.gif)
+![Сustom components relationships](https://raw.githubusercontent.com/DmitriySavchenko/reactjs-examples/master/demo_gif/custom_component_relationships.gif)
+
+[Select input](https://github.com/DmitriySavchenko/reactjs-examples/blob/master/select_input.html)
+ 
+![Select input](https://raw.githubusercontent.com/DmitriySavchenko/reactjs-examples/master/demo_gif/select_input.gif)
