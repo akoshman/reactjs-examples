@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>React</title>
+    <script src="lib/react-0.13.3.js"></script>
+    <script src="lib/JSXTransformer-0.13.3.js"></script>
+</head>
+<body>
+    <script type="text/jsx">
+        var RadioButtons = React.createClass({
+                getInitialState : function(){
+                    return{
+                        selected: ""
+                    };
+                },
+                update : function(e){
+                    this.setState({selected:e.target.value});
+                },
+                render: function(){
+                    var resultRows = this.props.list.map(function(result){
+                       return (
+                           <input type="radio" name={this.props.name}
+                                               value={result}  
+                                               checked={this.state.selected === result} 
+                                               onChange={this.update} >{result}</input>
+                       );
+                   }, this);
+                    return(
+                        <div>
+                            {resultRows}
+                        </div>
+                        );
+                }
+        });
+        var App = React.createClass({
+            render : function(){
+                return (<RadioButtons list={["A","B","C"]} name="myTest"/>);
+            }
+        });
+        React.render(<App />,document.body);
+    </script>
+</body>

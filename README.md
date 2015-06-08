@@ -16,3 +16,7 @@ Collection of simple examples using react.js
 [Select input](https://github.com/DmitriySavchenko/reactjs-examples/blob/master/select_input.html)
  
 ![Select input](https://raw.githubusercontent.com/DmitriySavchenko/reactjs-examples/master/demo_gif/select_input.gif)
+
+[Radio buttons](https://github.com/DmitriySavchenko/reactjs-examples/blob/master/radio_buttons.html)
+ 
+![Radio buttons](https://raw.githubusercontent.com/DmitriySavchenko/reactjs-examples/master/demo_gif/radio_buttons.gif)
