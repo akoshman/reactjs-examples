@@ -20,3 +20,7 @@ Collection of simple examples using react.js
 [Radio buttons](https://github.com/DmitriySavchenko/reactjs-examples/blob/master/radio_buttons.html)
  
 ![Radio buttons](https://raw.githubusercontent.com/DmitriySavchenko/reactjs-examples/master/demo_gif/radio_buttons.gif)
+
+[Checkboxes component](https://github.com/DmitriySavchenko/reactjs-examples/blob/master/checkboxes_component.html)
+ 
+![Checkboxes component](https://raw.githubusercontent.com/DmitriySavchenko/reactjs-examples/master/demo_gif/checkboxes_component.gif)

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>React</title>
+    <script src="lib/react-0.13.3.js"></script>
+    <script src="lib/JSXTransformer-0.13.3.js"></script>
+</head>
+<body>
+    <script type="text/jsx">
+        var CheckBoxes = React.createClass({
+                getInitialState : function(){
+                    return{
+                        selected: this.props.selected ? this.props.selected : []
+                    };
+                },
+                update : function(e){
+                    var selected = this.state.selected;
+                    if(e.target.checked){
+                        selected.push(e.target.value);
+                    }else{
+                        selected.splice( selected.indexOf(e.target.value), 1 );
+                    }
+                    this.setState({selected:selected});
+                },
+                render: function(){
+                    var resultRows = this.props.list.map(function(result){
+                       return (
+                           <input type="checkbox" name={this.props.name}
+                                               value={result}  
+                                               checked={this.state.selected.some(function(e){return e === result})} 
+                                               onChange={this.update} >{result}</input>
+                       );
+                   }, this);
+                    return(
+                        <div>
+                            {resultRows}
+                        </div>
+                        );
+                }
+        });
+        var App = React.createClass({
+            render : function(){
+                return (<CheckBoxes list={["A","B","C"]} selected={["B"]} name="myTest"/>);
+            }
+        });
+        React.render(<App />,document.body);
+    </script>
+</body>
