@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Text input example</title>
+	<script src="lib/react-0.13.3.js"></script>
+    <script src="lib/JSXTransformer-0.13.3.js"></script>
+</head>
+<body>
+	<script type="text/jsx">
+		var Button = React.createClass({
+			render:function(){
+				return (
+						<input type="button" onClick={this.props.action} value={this.props.value}/>
+					);
+			}
+		});
+		var ListView = React.createClass({
+			render:function(){
+				var resultRows = this.props.array.map(function(result){
+                       return (
+                       	<li>
+                           <span>{result}</span>
+                        </li>
+                       );
+                   }, this);
+                    return(
+                        <ul>
+                            {resultRows}
+                        </ul>
+                        );
+			}
+		});
+		var App = React.createClass({
+			getInitialState:function(){
+				return({
+					textMessage : "",
+					array : []
+				});
+			},
+			update:function(e){
+				this.setState({textMessage:e.target.value});
+			},
+			add:function(e){
+				this.state.array.push(this.state.textMessage);
+				this.setState({array:this.state.array});
+			},
+			render:function(){
+				return (
+					<div>
+						<ListView array={this.state.array}/>
+						<input type="text" onChange={this.update}/>
+						<Button value="Add" action={this.add}/>
+					</div>
+					);
+			}
+		});
+		React.render(<App />,document.body);
+	</script>
+</body>
+</html>
