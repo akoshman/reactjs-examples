@@ -28,3 +28,7 @@ Collection of simple examples using react.js
 [ListView](https://github.com/DmitriySavchenko/reactjs-examples/blob/master/list_view.html)
  
 ![ListView](https://raw.githubusercontent.com/DmitriySavchenko/reactjs-examples/master/demo_gif/list_view.gif)
+
+[Simple table](https://github.com/DmitriySavchenko/reactjs-examples/blob/master/bootstrap_simple_table.html)
+
+![Simple table](https://raw.githubusercontent.com/DmitriySavchenko/reactjs-examples/master/demo_gif/bootstrap_simple_table.gif)
