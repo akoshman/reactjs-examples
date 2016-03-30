@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Description: App component manages persons. PersonsTable calls parent's removePerson method -->
+    <meta charset="UTF-8" />
+    <title>React Table</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+    <script src="https://fb.me/react-0.14.7.js"></script>
+    <script src="https://fb.me/react-dom-0.14.7.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+    <style>
+      body {
+        margin: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="table-example"></div>
+
+    <script type="text/babel">
+      var App = React.createClass({
+        getInitialState: function() {
+          return {
+            persons: [],
+            nextId: 1
+          };
+        },
+
+        addPerson: function() {
+          var nameInput = this.refs.nameInput;
+          if (!nameInput.value) return;
+
+          var person = {
+            id  : this.state.nextId,
+            name: nameInput.value
+          }
+
+          this.state.persons.push(person);
+          this.state.nextId++;
+
+          this.forceUpdate();
+          nameInput.value = "";
+          nameInput.focus();
+        },
+
+        removePerson: function(id) {
+          var persons = this.state.persons.filter(function(person) {
+            return person.id !== Number(id);
+          });
+
+          this.setState({persons: persons});
+        },
+
+        render: function() {
+          return (
+            <div>
+              <label htmlFor="new-name" >Name:</label>&nbsp;
+              <label><input ref="nameInput" id="new-name" type="text" /></label>&nbsp;
+              <input type="button" className="btn btn-success" value="Add" onClick={this.addPerson}/>
+              <PersonsTable
+                ref="personsTable"
+                persons={this.state.persons}
+                onRemovePerson={this.removePerson}
+              />
+            </div>
+          );
+        },
+
+        componentDidMount: function() {
+          this.refs.nameInput.focus();
+        }
+      });
+
+      var PersonsTable = React.createClass({
+        onRemovePerson: function(id) {
+          this.props.onRemovePerson(id);
+        },
+
+        renderRow: function(person) {
+          return (
+            <tr key={"person-id-" + person.id}>
+              <td>{person.name}</td>
+              <td>
+                  <button
+                    type="button"
+                    className="btn btn-default btn-default"
+                    onClick={this.onRemovePerson.bind(this, person.id)}>
+                      <span className="glyphicon glyphicon-remove" aria-hidden="true">Remove</span>
+                  </button>
+              </td>
+            </tr>
+          )
+        },
+
+        render: function() {
+          return (
+            <table className="table">
+              <tbody>
+                {this.props.persons.map(this.renderRow)}
+              </tbody>
+            </table>
+          );
+        }
+      });
+
+      ReactDOM.render(
+        <App />,
+        document.getElementById('table-example')
+      );
+    </script>
+  </body>
+</html>
